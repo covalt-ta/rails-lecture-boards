@@ -15,6 +15,16 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    board = Board.find(params[:id])
+    board.update(board_params)
+    redirect_to board #redirect_toの引数にオブジェクトを渡すと詳細へリダイレクトする
+  end
+
   private
 
   def board_params
